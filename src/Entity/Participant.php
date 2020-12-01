@@ -4,12 +4,15 @@ namespace App\Entity;
 
 use App\Repository\ParticipantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\User;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=ParticipantRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ParticipantRepository", repositoryClass=ParticipantRepository::class)
  */
-class Participant
+class Participant implements UserInterface
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -32,10 +35,12 @@ class Participant
      */
     private $email;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomCours;
+    private $password;
+
 
     public function getId(): ?int
     {
@@ -78,15 +83,52 @@ class Participant
         return $this;
     }
 
-    public function getNomCours(): ?string
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles()
     {
-        return $this->nomCours;
+        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
-    public function setNomCours(string $nomCours): self
+
+
+
+    /**
+     * @see UserInterface
+     */
+
+    public function getSalt()
     {
-        $this->nomCours = $nomCours;
+        // TODO: Implement getSalt() method.
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+        return $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+        // TODO: Implement getPassword() method.
     }
 }
