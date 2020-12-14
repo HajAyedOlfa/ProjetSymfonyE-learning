@@ -12,8 +12,8 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-       $faker=Factory::create();
-        for($i=0;$i<10;$i++){
+        $faker = Factory::create();
+        for ($i = 0; $i < 10; $i++) {
             $participant = new Participant();
             $participant->setNomP($faker->firstName);
             $participant->setPrenomP($faker->lastName);
