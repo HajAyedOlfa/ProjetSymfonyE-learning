@@ -15,24 +15,24 @@
                             <p class="lead">Créer un compte</p>
                         </div>
                         <div class="body">
-                            <form class="form-auth-small">
+                            <form action="/AjouterUser" method="POST" class="form-auth-small">
                                 <div class="form-group">
                                     <label for="signup-First-naame" class="control-label sr-only">Nom</label>
-                                    <input type="text" class="form-control" id="signup-First-naame" placeholder="Vote Nom">
+                                    <input name="firstName" type="text" class="form-control" id="firstName" placeholder="Vote Nom">
                                 </div>
                                 <div class="form-group">
                                     <label for="signup-Last-name" class="control-label sr-only">Prénom</label>
-                                    <input type="text" class="form-control" id="signup-Last-name" placeholder="Vote Prénom">
+                                    <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Vote Prénom">
                                 </div>
                                 <div class="form-group">
                                     <label for="signup-email" class="control-label sr-only">Email</label>
-                                    <input type="email" class="form-control" id="signup-email" placeholder="Votre Email">
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Votre Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="signup-password" class="control-label sr-only">Password</label>
-                                    <input type="password" class="form-control" id="signup-password" placeholder="Votre Mot de passe">
+                                    <input name="password" type="password" class="form-control" id="password" placeholder="Votre Mot de passe">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Créer</button>
+                                <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Créer</button>
                                 <div class="bottom">
                                     <span class="helper-text">Avez-Vous déja un compt ? <a href={{ path('app_login') }}>Se Connecter</a></span>
                                 </div>
