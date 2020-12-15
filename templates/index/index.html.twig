@@ -140,20 +140,9 @@
 
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="header">
-                                <h2>Patients Status</h2>
-                                <ul class="header-dropdown">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another Action</a></li>
-                                            <li><a href="javascript:void(0);">Something else</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="body">
+
+                                <h3>Liste des Matières</h3>
                                 <p class="float-md-right">
                                     <span class="btn btn-outline-primary">Ajouter</span>
                                 </p>
@@ -197,8 +186,16 @@
                                                     <a href="{{ path('matiere_edit', {'id': matiere.id}) }}"></a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ path('matiere_edit', {'id': matiere.id}) }}"></a>
-                                                    <span class="btn btn-outline-danger fa fa-trash-o"></span>
+                                                    <form method="post" action="{{ path('matiere_delete', {'id': matiere.id}) }}"
+                                                          onsubmit="return confirm('Are you sure you want to delete this item?');">
+
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ matiere.id) }}">
+
+                                                        <button class="btn btn-outline-danger fa fa-trash-o"></button>
+
+                                                    </form>
+
                                                 </td>
 
                                             </tr>
