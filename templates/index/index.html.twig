@@ -5,13 +5,17 @@
 
 
 {% block body %}
-    {{ include ('index/navBarre.html.twig')}}
+    {{ include ('index/navBarre.html.twig') }}
+    {{ include ('index/sideBare.html.twig') }}
+
     <body class="theme-cyan">
 
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
-            <div class="m-t-30"><img src="http://www.wrraptheme.com/templates/lucid/hospital/assets/images/logo-icon.svg" width="48" height="48" alt="Lucid"></div>
+            <div class="m-t-30"><img
+                        src="http://www.wrraptheme.com/templates/lucid/hospital/assets/images/logo-icon.svg" width="48"
+                        height="48" alt="Lucid"></div>
             <p>Please wait...</p>
         </div>
     </div>
@@ -20,95 +24,13 @@
     <div id="wrapper">
 
 
-
-        <div id="left-sidebar" class="sidebar">
-            <div class="sidebar-scroll">
-                <div class="user-account">
-                    <img src="../assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
-                    <div class="dropdown">
-                        <span>Welcome,</span>
-                        <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Dr. Chandler Bing</strong></a>
-                        <ul class="dropdown-menu dropdown-menu-right account">
-                            <li><a href="doctor-profile.html"><i class="icon-user"></i>My Profile</a></li>
-                            <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                            <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
-                            <li class="divider"></li>
-                            <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
-                        </ul>
-                    </div>
-
-
-                </div>
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
-
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content p-l-0 p-r-0">
-                    <div class="tab-pane active" id="menu">
-                        <nav class="sidebar-nav">
-                            <ul class="main-menu metismenu">
-                                <li class="active"><a href="index.html"><i class="icon-home"></i><span>Dashboard</span></a></li>
-                                <li><a href="app-appointment.html"><i class="icon-calendar"></i>Emploi</a></li>
-
-
-                                <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Participants</span> </a>
-                                    <ul>
-                                        <li><a href="patients-all.html">All Patients</a></li>
-                                        <li><a href="patient-add.html">Add Patient</a></li>
-                                        <li><a href="patient-profile.html">Patient Profile</a></li>
-                                        <li><a href="patient-invoice.html">Invoice</a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-layers"></i><span>Cours</span> </a>
-                                    <ul>
-                                        <li><a href="depa-add.html">Add</a></li>
-                                        <li><a href="depa-all.html">All Departments</a></li>
-                                        <li><a href="javascript:void(0);">Cardiology</a></li>
-                                        <li><a href="javascript:void(0);">Pulmonology</a></li>
-                                        <li><a href="javascript:void(0);">Gynecology</a></li>
-                                        <li><a href="javascript:void(0);">Neurology</a></li>
-                                        <li><a href="javascript:void(0);">Urology</a></li>
-                                        <li><a href="javascript:void(0);">Gastrology</a></li>
-                                        <li><a href="javascript:void(0);">Pediatrician</a></li>
-                                        <li><a href="javascript:void(0);">Laboratory</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
-                                    <ul>
-                                        <li><a href="page-login.html">Login</a></li>
-                                        <li><a href="page-register.html">Register</a></li>
-                                        <li><a href="page-lockscreen.html">Lockscreen</a></li>
-                                        <li><a href="page-forgot-password.html">Forgot Password</a></li>
-                                        <li><a href="page-404.html">Page 404</a></li>
-                                        <li><a href="page-403.html">Page 403</a></li>
-                                        <li><a href="page-500.html">Page 500</a></li>
-                                        <li><a href="page-503.html">Page 503</a></li>
-                                    </ul>
-                                </li>
-
-
-                            </ul>
-                        </nav>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </div>
-
         <div id="main-content">
             <div class="container-fluid">
                 <div class="block-header">
                     <div class="row">
                         <div class="col-lg-6 col-md-8 col-sm-12">
-                            <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Dashboard</h2>
+                            <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                                            class="fa fa-arrow-left"></i></a> Dashboard</h2>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
@@ -135,7 +57,6 @@
                 </div>
 
 
-
                 <div class="row clearfix">
 
                     <div class="col-lg-12">
@@ -144,53 +65,49 @@
 
                                 <h3>Liste des Matières</h3>
                                 <p class="float-md-right">
-                                    <span class="btn btn-outline-primary">Ajouter</span>
+                                    <button class="btn btn-outline-primary">
+                                        <a href="{{ path('index_matiere_new') }}">Ajouter</a>
+                                    </button>
                                 </p>
                                 <div class="table-responsive table_middel">
                                     <table class="table m-b-0">
                                         <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
-                                            <th> Nom Matière </th>
-                                            <th> Prix </th>
-                                            <th> Afficher </th>
-                                            <th> Modifier </th>
-                                            <th> Supprimer </th>
+                                            <th> Nom Matière</th>
+                                            <th> Prix</th>
+                                            <th> Afficher</th>
+                                            <th> Modifier</th>
+                                            <th> Supprimer</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="../assets/images/xs/avatar3.jpg" class="rounded-circle width30 m-r-15" alt="profile-image"><span>John</span></td>
-                                            <td>Sept 13, 2017</td>
-                                            <td><span class="btn btn-outline-success icon-eye"></span></td>
-                                            <td><span class="btn btn-outline-warning fa fa-edit"></span></td>
-                                            <td>
-                                                <a href="#"></a>
-                                                <span class="btn btn-outline-danger fa fa-trash-o"></span>
-                                            </td>
 
-
-                                        </tr>
                                         {% for matiere in matieres %}
                                             <tr>
                                                 <td>{{ matiere.id }}</td>
                                                 <td>{{ matiere.nomMat }}</td>
                                                 <td>{{ matiere.prixMat }}</td>
                                                 <td>
-                                                    <span class="btn btn-outline-success icon-eye"></span>
-                                                    <a href="{{ path('matiere_show', {'id': matiere.id}) }}"></a>
+                                                    <a href="{{ path('index_matiere_show', {'id': matiere.id}) }}">
+                                                        <button class="btn btn-outline-success icon-eye">
+                                                        </button>
+                                                    </a>
                                                 </td>
                                                 <td>
-                                                    <span class="btn btn-outline-warning fa fa-edit"></span>
-                                                    <a href="{{ path('matiere_edit', {'id': matiere.id}) }}"></a>
+                                                    <a href="{{ path('index_matiere_show', {'id': matiere.id}) }}">
+                                                        <button class="btn btn-outline-warning fa fa-edit">
+                                                        </button>
+                                                    </a>
                                                 </td>
                                                 <td>
-                                                    <form method="post" action="{{ path('matiere_delete', {'id': matiere.id}) }}"
+                                                    <form method="post"
+                                                          action="{{ path('index_matiere_delete', {'id': matiere.id}) }}"
                                                           onsubmit="return confirm('Are you sure you want to delete this item?');">
 
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ matiere.id) }}">
+                                                        <input type="hidden" name="_token"
+                                                               value="{{ csrf_token('delete' ~ matiere.id) }}">
 
                                                         <button class="btn btn-outline-danger fa fa-trash-o"></button>
 

@@ -11,10 +11,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\MatiereRepository;
 
+/**
+ * @package App\Controller
+ * @Route ("/index")
+ */
 class IndexController extends AbstractController
 {
     /**
-     * @Route("/index", name="index")
+     * @Route("/", name="index")
      * @IsGranted("ROLE_USER")
      */
     public function index(MatiereRepository $matiereRepository): Response
@@ -27,7 +31,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="matiere_new", methods={"GET","POST"})
+     * @Route("/new", name="index_matiere_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -40,27 +44,27 @@ class IndexController extends AbstractController
             $entityManager->persist($matiere);
             $entityManager->flush();
 
-            return $this->redirectToRoute('matiere_index');
+            return $this->redirectToRoute('index');
         }
 
-        return $this->render('matiere/new.html.twig', [
+        return $this->render('index/new.html.twig', [
             'matiere' => $matiere,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="matiere_show", methods={"GET"})
+     * @Route("/{id}/show", name="index_matiere_show", methods={"GET"})
      */
     public function show(Matiere $matiere): Response
     {
-        return $this->render('matiere/show.html.twig', [
+        return $this->render('index/show.html.twig', [
             'matiere' => $matiere,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="matiere_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="index_matiere_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Matiere $matiere): Response
     {
@@ -70,17 +74,17 @@ class IndexController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('matiere_index');
+            return $this->redirectToRoute('index');
         }
 
-        return $this->render('matiere/edit.html.twig', [
+        return $this->render('index/edit.html.twig', [
             'matiere' => $matiere,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="matiere_delete", methods={"DELETE"})
+     * @Route("/{id}", name="index_matiere_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Matiere $matiere): Response
     {

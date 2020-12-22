@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div id="left-sidebar" class="sidebar">
+    <div class="sidebar-scroll">
+        <div class="user-account">
+            <img src="../assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
+            <div class="dropdown">
+                <span>Welcome,</span>
+                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Dr. Chandler Bing</strong></a>
+                <ul class="dropdown-menu dropdown-menu-right account">
+                    <li><a href="doctor-profile.html"><i class="icon-user"></i>My Profile</a></li>
+                    <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content p-l-0 p-r-0">
+            <div class="tab-pane active" id="menu">
+                <nav class="sidebar-nav">
+                    <ul class="main-menu metismenu">
+                        <li class="active"><a href="index.html"><i class="icon-home"></i><span>Dashboard</span></a></li>
+                        <li><a href="app-appointment.html"><i class="icon-calendar"></i>Emploi</a></li>
+
+
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Participants</span> </a>
+                            <ul>
+                                <li><a href="patients-all.html">All Patients</a></li>
+                                <li><a href="patient-add.html">Add Patient</a></li>
+                                <li><a href="patient-profile.html">Patient Profile</a></li>
+                                <li><a href="patient-invoice.html">Invoice</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-layers"></i><span>Cours</span> </a>
+                            <ul>
+                                <li><a href="depa-add.html">Add</a></li>
+                                <li><a href="depa-all.html">All Departments</a></li>
+                                <li><a href="javascript:void(0);">Cardiology</a></li>
+                                <li><a href="javascript:void(0);">Pulmonology</a></li>
+                                <li><a href="javascript:void(0);">Gynecology</a></li>
+                                <li><a href="javascript:void(0);">Neurology</a></li>
+                                <li><a href="javascript:void(0);">Urology</a></li>
+                                <li><a href="javascript:void(0);">Gastrology</a></li>
+                                <li><a href="javascript:void(0);">Pediatrician</a></li>
+                                <li><a href="javascript:void(0);">Laboratory</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
+                            <ul>
+                                <li><a href="page-login.html">Login</a></li>
+                                <li><a href="page-register.html">Register</a></li>
+                                <li><a href="page-lockscreen.html">Lockscreen</a></li>
+                                <li><a href="page-forgot-password.html">Forgot Password</a></li>
+                                <li><a href="page-404.html">Page 404</a></li>
+                                <li><a href="page-403.html">Page 403</a></li>
+                                <li><a href="page-500.html">Page 500</a></li>
+                                <li><a href="page-503.html">Page 503</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

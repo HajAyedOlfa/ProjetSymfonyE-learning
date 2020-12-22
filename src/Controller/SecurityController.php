@@ -48,9 +48,7 @@ class SecurityController extends AbstractController
 
 
 
-        if(empty($firstName)||empty($lastName)||empty($email)||empty($password)){
-            throw new NotFoundHttpException($message='parameter please');
-        }
+
 
         $this->repository->saveUser($firstName,$lastName,$email,$password) ;
         return $this->redirectToRoute('app_login');
