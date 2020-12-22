@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Matiere;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,12 @@ class MatiereType extends AbstractType
         $builder
             ->add('nomMat')
             ->add('prixMat')
-            ->add('imgMat')
+            ->add('imgMat', FileType::class, [
+                'label' =>false,
+                'multiple' => false,
+                'mapped' => false
+
+            ])
         ;
     }
 

@@ -40,6 +40,17 @@ class IndexController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            //on recupère les images transmisse
+            $images = $form->get('imgMat')->getData();
+            $fichier = md5(uniqid()) . '.' . $images->guessExtension();
+            $images->move(
+                $this->getParameter('image_directory'),
+                $fichier
+            );
+            $matiere ->setImgMat($fichier);
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($matiere);
             $entityManager->flush();
@@ -72,6 +83,17 @@ class IndexController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            //on recupère les images transmisse
+            $images = $form->get('imgMat')->getData();
+            $fichier = md5(uniqid()) . '.' . $images->guessExtension();
+            $images->move(
+                $this->getParameter('image_directory'),
+                $fichier
+            );
+            $matiere ->setImgMat($fichier);
+
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('index');

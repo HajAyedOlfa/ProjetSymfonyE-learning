@@ -31,6 +31,7 @@ class Matiere
 
     /**
      * @ORM\Column(type="string", length=255)
+     * cascade={"persist"}
      */
     private $imgMat;
 
