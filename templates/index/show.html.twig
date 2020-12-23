@@ -78,7 +78,13 @@
                                 </tr>
                                 <tr>
                                     <th>ImgMat</th>
-                                    <td>{{ matiere.imgMat }}</td>
+                                    <td>
+                                        {% if app.request.attributes.get('_route')== 'index_matiere_show' %}
+                                            <div>
+                                                <img src="{{  asset('/uploads/'~ matiere.imgMat) }}" alt="Image" width="500">
+                                            </div>
+                                        {% endif %}
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

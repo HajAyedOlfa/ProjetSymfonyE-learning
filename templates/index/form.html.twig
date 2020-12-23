@@ -1,4 +1,10 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
+
+    {% if app.request.attributes.get('_route')== 'index_matiere_edit' %}
+        <div>
+            <img src="{{  asset('/uploads/'~ matiere.imgMat) }}" alt="Image" width="300">
+        </div>
+    {% endif %}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

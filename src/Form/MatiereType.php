@@ -18,7 +18,8 @@ class MatiereType extends AbstractType
             ->add('imgMat', FileType::class, [
                 'label' =>false,
                 'multiple' => false,
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
 
             ])
         ;

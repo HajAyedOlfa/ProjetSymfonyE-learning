@@ -112,6 +112,7 @@ class IndexController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$matiere->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove();
             $entityManager->remove($matiere);
             $entityManager->flush();
         }
