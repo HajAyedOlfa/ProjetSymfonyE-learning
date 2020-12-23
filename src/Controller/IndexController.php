@@ -112,7 +112,11 @@ class IndexController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$matiere->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove();
+
+            //recuperation de l'image a supprimer du dossier uploads
+            $image = $matiere->getImgMat();
+            unlink($this->getParameter('image_directory')."/".$image);
+
             $entityManager->remove($matiere);
             $entityManager->flush();
         }
