@@ -33,23 +33,7 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ul>
                     </div>
-                    <div class="col-lg-6 col-md-4 col-sm-12 text-right">
-                        <div class="bh_chart hidden-xs">
-                            <div class="float-left m-r-15">
-                                <small>Visitors</small>
-                                <h6 class="mb-0 mt-1"><i class="icon-user"></i> 1,784</h6>
-                            </div>
-                            <span class="bh_visitors float-right">2,5,1,8,3,6,7,5</span>
-                        </div>
-                        <div class="bh_chart hidden-sm">
-                            <div class="float-left m-r-15">
-                                <small>Visits</small>
-                                <h6 class="mb-0 mt-1"><i class="icon-globe"></i> 325</h6>
-                            </div>
-                            <span class="bh_visits float-right">10,8,9,3,5,8,5</span>
-                        </div>
 
-                    </div>
                 </div>
             </div>
 
@@ -91,10 +75,32 @@
 
                             <a href="{{ path('index') }}">back to list</a>
 
-                            <a href="{{ path('index_matiere_edit', {'id': matiere.id}) }}">edit</a>
+
 
                         </div>
+
                     </div>
+                    <div class="card">
+                        <div class="header">
+                            <h2>Liste des cours de {{ matiere.nomMat }}</h2>
+                        </div>
+                        <div class="body">
+                            <ul class="list-group">
+
+
+                                {% for cour in matiere.getCours() %}
+                                    <li class="list-group-item">{{ cour.getNomCours() }}
+                                        <a href="{{ path('cours_show', {'id': cour.id}) }}">
+                                            <p class="float-right"><button class="btn btn-outline-success icon-eye " ></button></p>
+
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
