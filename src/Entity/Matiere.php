@@ -46,6 +46,8 @@ class Matiere
     }
 
 
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,6 +118,10 @@ class Matiere
 
         return $this;
     }
+
+
+
+
 
 
 }

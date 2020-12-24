@@ -77,7 +77,7 @@
                                     <td>{{ matiere.prixMat }}</td>
                                 </tr>
                                 <tr>
-                                    <th>ImgMat</th>
+                                    <th>image Matière</th>
                                     <td>
                                         {% if app.request.attributes.get('_route')== 'index_matiere_show' %}
                                             <div>
@@ -93,7 +93,6 @@
 
                             <a href="{{ path('index_matiere_edit', {'id': matiere.id}) }}">edit</a>
 
-                            {{ include('index/delete_form.html.twig') }}
                         </div>
                     </div>
                 </div>

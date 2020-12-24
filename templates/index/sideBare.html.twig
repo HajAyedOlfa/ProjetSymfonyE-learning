@@ -2,86 +2,127 @@
 
 {% block body %}
 
-<div id="left-sidebar" class="sidebar">
-    <div class="sidebar-scroll">
-        <div class="user-account">
-            <img src="../assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
-            <div class="dropdown">
-                <span>Welcome,</span>
-                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Dr. Chandler Bing</strong></a>
-                <ul class="dropdown-menu dropdown-menu-right account">
-                    <li><a href="doctor-profile.html"><i class="icon-user"></i>My Profile</a></li>
-                    <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
-                    <li class="divider"></li>
-                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
-                </ul>
-            </div>
 
 
-        </div>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
-            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
-
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content p-l-0 p-r-0">
-            <div class="tab-pane active" id="menu">
-                <nav class="sidebar-nav">
-                    <ul class="main-menu metismenu">
-                        <li class="active"><a href="index.html"><i class="icon-home"></i><span>Dashboard</span></a></li>
-                        <li><a href="app-appointment.html"><i class="icon-calendar"></i>Emploi</a></li>
-
-
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Participants</span> </a>
-                            <ul>
-                                <li><a href="patients-all.html">All Patients</a></li>
-                                <li><a href="patient-add.html">Add Patient</a></li>
-                                <li><a href="patient-profile.html">Patient Profile</a></li>
-                                <li><a href="patient-invoice.html">Invoice</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-layers"></i><span>Cours</span> </a>
-                            <ul>
-                                <li><a href="depa-add.html">Add</a></li>
-                                <li><a href="depa-all.html">All Departments</a></li>
-                                <li><a href="javascript:void(0);">Cardiology</a></li>
-                                <li><a href="javascript:void(0);">Pulmonology</a></li>
-                                <li><a href="javascript:void(0);">Gynecology</a></li>
-                                <li><a href="javascript:void(0);">Neurology</a></li>
-                                <li><a href="javascript:void(0);">Urology</a></li>
-                                <li><a href="javascript:void(0);">Gastrology</a></li>
-                                <li><a href="javascript:void(0);">Pediatrician</a></li>
-                                <li><a href="javascript:void(0);">Laboratory</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
-                            <ul>
-                                <li><a href="page-login.html">Login</a></li>
-                                <li><a href="page-register.html">Register</a></li>
-                                <li><a href="page-lockscreen.html">Lockscreen</a></li>
-                                <li><a href="page-forgot-password.html">Forgot Password</a></li>
-                                <li><a href="page-404.html">Page 404</a></li>
-                                <li><a href="page-403.html">Page 403</a></li>
-                                <li><a href="page-500.html">Page 500</a></li>
-                                <li><a href="page-503.html">Page 503</a></li>
-                            </ul>
-                        </li>
-
-
+    <div id="left-sidebar" class="sidebar">
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <div class="dropdown">
+                    <span>Bienvenue,</span>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown">
+                        <strong>{{ app.user.nomP }} {{ app.user.prenomP }} </strong></a>
+                    <ul class="dropdown-menu dropdown-menu-right account">
+                        <li><a href="{{ path('app_logout') }}"><i class="icon-power"></i>Logout</a></li>
                     </ul>
-                </nav>
+                </div>
+
+
             </div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content p-l-0 p-r-0">
+                <div class="tab-pane active" id="menu">
+                    <nav class="sidebar-nav">
+                        <ul class="main-menu metismenu">
+                            <li class="active">
+                                <a href="{{ path('index') }}">
+                                    <i class="icon-home"></i>
+                                    <span>Tableau de Bord</span>
+                                </a>
+                            </li>
+
+                            <li><a href="javascript:void(0);" class="has-arrow"><i
+                                            class="icon-list"></i><span> Matières </span>
+                                </a>
+                                <ul>
+                                    <li><a href="{{ path('index') }}">Tous les Matière</a></li>
+                                    <li><a href="{{ path('index_matiere_new') }}">Ajouter Matière</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="javascript:void(0);" class="has-arrow"><i
+                                            class="icon-layers"></i><span>Cours</span>
+                                </a>
+                                <ul>
+                                    <li><a href="{{ path('cours_index') }}">Tous les Cours</a></li>
+                                    <li><a href="{{ path('cours_new') }}">Ajouter Cours</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Participants</span>
+                                </a>
+                                <ul>
+                                    <li><a href="doctors-all.html">Tous les Participants </a></li>
+                                    <li><a href="doctor-profile.html">Participants Profile</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="javascript:void(0);" class="has-arrow"><i
+                                            class="icon-user"></i><span> Admins </span> </a>
+                                <ul>
+                                    <li><a href="patients-all.html"> Tous les Admins </a></li>
+                                    <li><a href="patient-add.html"> Ajouter Admins </a></li>
+                                    <li><a href="patient-profile.html">Admin Profile</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Payments</span>
+                                </a>
+                                <ul>
+                                    <li><a href="payments.html">Payments</a></li>
+                                    <li><a href="payments-add.html">Add Payment</a></li>
+                                    <li><a href="payments-invoice.html">Invoice</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="app-appointment.html"><i class="icon-calendar"></i>Emplois</a></li>
 
 
+                        </ul>
+                    </nav>
+                </div>
 
+
+                <div class="tab-pane p-l-15 p-r-15" id="setting">
+                    <h6>Choose Skin</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple">
+                            <div class="purple"></div>
+                            <span>Purple</span>
+                        </li>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                            <span>Blue</span>
+                        </li>
+                        <li data-theme="cyan" class="active">
+                            <div class="cyan"></div>
+                            <span>Cyan</span>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                            <span>Green</span>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                            <span>Orange</span>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>
+                            <span>Blush</span>
+                        </li>
+                    </ul>
+                    <hr>
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
