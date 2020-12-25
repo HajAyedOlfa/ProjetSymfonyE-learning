@@ -13,13 +13,13 @@ use App\Repository\MatiereRepository;
 
 /**
  * @package App\Controller
- * @Route ("/index")
+ * @Route ("/admin/index")
  */
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(MatiereRepository $matiereRepository): Response
     {

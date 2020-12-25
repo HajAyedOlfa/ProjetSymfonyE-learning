@@ -36,23 +36,7 @@
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ul>
                         </div>
-                        <div class="col-lg-6 col-md-4 col-sm-12 text-right">
-                            <div class="bh_chart hidden-xs">
-                                <div class="float-left m-r-15">
-                                    <small>Visitors</small>
-                                    <h6 class="mb-0 mt-1"><i class="icon-user"></i> 1,784</h6>
-                                </div>
-                                <span class="bh_visitors float-right">2,5,1,8,3,6,7,5</span>
-                            </div>
-                            <div class="bh_chart hidden-sm">
-                                <div class="float-left m-r-15">
-                                    <small>Visits</small>
-                                    <h6 class="mb-0 mt-1"><i class="icon-globe"></i> 325</h6>
-                                </div>
-                                <span class="bh_visits float-right">10,8,9,3,5,8,5</span>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
 
@@ -65,9 +49,11 @@
 
                                 <h3>Liste des Matières</h3>
                                 <p class="float-md-right">
-                                    <button class="btn btn-outline-primary">
-                                        <a href="{{ path('index_matiere_new') }}">Ajouter</a>
-                                    </button>
+
+                                        <a href="{{ path('index_matiere_new') }}">
+                                            <button class="btn btn-outline-primary">Ajouter</button>
+                                        </a>
+
                                 </p>
                                 <div class="table-responsive table_middel">
                                     <table class="table m-b-0">
@@ -103,7 +89,7 @@
                                                 <td>
                                                     <form method="post"
                                                           action="{{ path('index_matiere_delete', {'id': matiere.id}) }}"
-                                                          onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                          onsubmit="return confirm('Voulez-vous vraiment supprimer ce matière?');">
 
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="_token"
@@ -118,7 +104,7 @@
                                             </tr>
                                         {% else %}
                                             <tr>
-                                                <td colspan="5">no records found</td>
+                                                <td colspan="5">Aucune matière trouvée </td>
                                             </tr>
                                         {% endfor %}
 

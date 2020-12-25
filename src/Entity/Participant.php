@@ -41,6 +41,12 @@ class Participant implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="json")
+     *
+     */
+    private $role = [];
+
 
     public function getId(): ?int
     {
@@ -87,10 +93,12 @@ class Participant implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getRoles()
+    public function getRoles(): array
     {
-        // TODO: Implement getRoles() method.
-        return ['ROLE_USER'];
+        //recupérer les roles qui internient
+        $roles=$this->role;
+        $roles[]='ROLE_USER';
+        return array_unique($roles);
     }
 
 
@@ -130,5 +138,17 @@ class Participant implements UserInterface
     {
         return $this->password;
         // TODO: Implement getPassword() method.
+    }
+
+    public function getRole(): ?array
+    {
+        return $this->role;
+    }
+
+    public function setRole(array $role): self
+    {
+        $this->role = $role;
+
+        return $this;
     }
 }
