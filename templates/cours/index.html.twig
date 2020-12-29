@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}menu{% endblock %}
+
+
+{% block body %}
+    {{ include ('index/navBarre.html.twig') }}
+    {{ include ('index/sideBare.html.twig') }}
+
+<body class="theme-cyan">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img
+                    src="http://www.wrraptheme.com/templates/lucid/hospital/assets/images/logo-icon.svg" width="48"
+                    height="48" alt="Lucid"></div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                                        class="fa fa-arrow-left"></i></a> Dashboard</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+
+                            <h3>Liste des Cours</h3>
+                            <p class="float-md-right">
+                                <a href="{{ path('cours_new') }}">
+                                    <button class="btn btn-outline-primary">Ajouter</button>
+                                </a>
+                            </p>
+    <div class="table-responsive table_middel">
+    <table class="table m-b-0">
+        <thead class="thead-dark">
+            <tr>
+
+                <th> Nom Cours </th>
+                <th> Prix Cours </th>
+                <th> Matière </th>
+                <th> Afficher </th>
+                <th> Modifier </th>
+                <th> Supprimer </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            <tr>
+
+                <td>{{ cour.nomCours }}</td>
+                <td>{{ cour.prixCours }}</td>
+                <td>{{ cour.matiere.getNomMat() }}</td>
+
+                <td>
+                    <a href="{{ path('cours_show', {'id': cour.id}) }}">
+                        <button class="btn btn-outline-success icon-eye">
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('cours_edit', {'id': cour.id}) }}">
+                        <button class="btn btn-outline-warning fa fa-edit">
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <form method="post"
+                          action="{{ path('cours_delete', {'id': cour.id}) }}"
+                          onsubmit="return confirm('Voulez-vous vraiment supprimer ce matière?');">
+
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token"
+                               value="{{ csrf_token('delete' ~ cour.id) }}">
+
+                        <button class="btn btn-outline-danger fa fa-trash-o"></button>
+
+                    </form>
+                </td>
+
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Cour trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
