@@ -3,9 +3,8 @@
 
     {% if app.request.attributes.get('_route')== 'index_matiere_edit' %}
         <div>
-
             <img src="{{  asset('/uploads/'~ matiere.imgMat) }}" alt="Image" width="300">
         </div>
     {% endif %}
-    <button type="button" class="btn btn-outline-success">{{ button_label|default('Enregistrer') }}</button>
+    <button class="btn btn-outline-success">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
