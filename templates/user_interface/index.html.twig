@@ -18,7 +18,11 @@
                             <ul>
                                 <li class="active"><a href="#">Home</a></li>
                                 <li><a href="#matiere">Matiéres</a></li>
-                                <li class="btn-cta"><a href="{{ path('app_logout')}}"><span>Se déconnecter</span></a></li>
+                                <li class="btn-cta">
+                                    <a href="{{ path('app_logout')}}">
+                                        <span>Se déconnecter <i class="fa fa-sign-out"></i></span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -35,7 +39,7 @@
                         <div class="display-t">
                             <div class="display-tc animate-box" data-animate-effect="fadeIn">
                                 <h1>L'art d'enseigner est l'art d'aider à la découverte</h1>
-                                <p><a href="{{ path('app_login')}}" class="btn btn-primary btn-lg btn-learn">Suivre des Cours</a> </p>
+                                <p><a href="#matiere" class="btn btn-primary btn-lg btn-learn">Suivre des Cours</a> </p>
                             </div>
                         </div>
                     </div>
@@ -70,7 +74,7 @@
                 </div>
                 <div class="row animate-box">
                     <div class="col-md-8 col-md-offset-2 text-center">
-                        <p><a href="{{ path('app_login')}}" class="btn btn-default btn-lg">Suivre des Cours</a></p>
+                        <p><a href="#matiere" class="btn btn-default btn-lg">Suivre des Cours</a></p>
                     </div>
                 </div>
             </div>
@@ -87,8 +91,13 @@
                             <div class="blog-text">
                                 <h3>{{ matiere.getNomMat() }}</h3>
                                 <span class="posted_on"> Prix : {{ matiere.getPrixMat()}} $</span>
+                                <p> Une petite descrition pour définir generalement cette Framework</p>
                                 <br>
-                                <a href="{{ path('app_login')}}" class="btn btn-primary">Rejoindre cette matière</a>
+                                <a href="{{ path('user_panier_add', {'id' : matiere.getId()}) }}" class="btn btn-primary">
+                                    <i class="fas fa-shopping-basket"> Ajouter au panier</i></button>
+                                </a>
+
+
                             </div>
                         </div>
                     </div>

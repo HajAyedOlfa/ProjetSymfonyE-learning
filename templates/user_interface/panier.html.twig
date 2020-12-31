@@ -1,0 +1,56 @@
+{% extends 'base.html.twig'%}
+{% block title 'Panier' %}
+{% block body %}
+
+    <div class="col-lg-6 col-md-12" style="margin-top: 10% ; margin-left: 25%">
+        <div class="card">
+            <div class="header">
+                <h2 style="text-align: center">Votre Panier</h2>
+            </div>
+            <div class="body" >
+                <div class="table-responsive social_media_table">
+                    {% if  items | length > 0%}
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>Nom de Matière</th>
+                                    <th>Supprimer</th>
+                                    <th>Prix</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in items  %}
+                                    <tr>
+                                        <td>{{ item.matiere.nomMat }}</td>
+                                        <td>
+                                            <a href="{{ path('user_panier_remove', {'id': item.matiere.id}) }}">
+                                                <button class="btn btn-outline-danger fa fa-trash-o "></button>
+                                            </a>
+
+                                        </td>
+                                        <td>{{ item.matiere.prixMat }}</td>
+
+                                    </tr>
+                                {% endfor %}
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" class="text-right">Total = </td>
+                                    <td>{{ total }} $</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+
+                    {% else %}
+                        <p> Surprise, C'est vide ! </p>
+                    {% endif %}
+                    <a href="{{ path('user_interface') }}" ><button type="button" data-type="confirm" class="btn btn-link " title="Retour">Retour</button></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
