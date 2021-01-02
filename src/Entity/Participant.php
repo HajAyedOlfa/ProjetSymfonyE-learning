@@ -108,9 +108,9 @@ class Participant implements UserInterface
     public function getRoles(): array
     {
         //recupérer les roles qui internient
-        $roles=$this->role;
-        $roles[]='ROLE_USER';
-        return array_unique($roles);
+        $role=$this->role;
+        $role[]='ROLE_USER';
+        return array_unique($role);
     }
 
 
@@ -152,10 +152,7 @@ class Participant implements UserInterface
         // TODO: Implement getPassword() method.
     }
 
-    public function getRole(): ?array
-    {
-        return $this->role;
-    }
+
 
     public function setRole(array $role): self
     {

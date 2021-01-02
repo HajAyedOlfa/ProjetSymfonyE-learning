@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}menu{% endblock %}
+
+
+{% block body %}
+
+
+<body class="theme-cyan">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img
+                    src="http://www.wrraptheme.com/templates/lucid/hospital/assets/images/logo-icon.svg" width="48"
+                    height="48" alt="Lucid"></div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    {{ include ('index/navBarre.html.twig') }}
+    {{ include ('index/sideBare.html.twig') }}
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                                        class="fa fa-arrow-left"></i></a> Dashboard</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ path('index') }}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+
+                            <h3>Liste des Admins </h3>
+
+                            <div class="table-responsive table_middel">
+                                <table class="table m-b-0">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th> Nom </th>
+                                        <th> Prenom </th>
+                                        <th> Email </th>
+                                        <th> Role </th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            {%for role in user.getRoles() %}
+                                                {% if role == "ROLE_ADMIN" %}
+                                            <td>{{ user.nomP }}</td>
+
+                                            <td>{{ user.prenomP }}</td>
+
+                                            <td>{{ user.email }}</td>
+
+
+                                                    <td> Role Admin </td>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5">Aucun Participant </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                                {% endblock %}

@@ -78,15 +78,17 @@ class CoursController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if(($form->get('imgCours')->getData())!=null){
+                //on recupère les images transmisse
+                $images = $form->get('imgCours')->getData();
+                $fichier = md5(uniqid()) . '.' . $images->guessExtension();
+                $images->move(
+                    $this->getParameter('image_directory'),
+                    $fichier
+                );
+                $cour ->setImgCours($fichier);
+            }
 
-            //on recupère les images transmisse
-            $images = $form->get('imgCours')->getData();
-            $fichier = md5(uniqid()) . '.' . $images->guessExtension();
-            $images->move(
-                $this->getParameter('image_directory'),
-                $fichier
-            );
-            $cour ->setImgCours($fichier);
 
             $this->getDoctrine()->getManager()->flush();
 

@@ -18,8 +18,8 @@ class MatiereType extends AbstractType
                 'label'=>'Nom Matière'
             ])
             ->add('prixMat',TextType::class, [
-        'label'=>'Prix Matière'
-    ])
+                'label'=>'Prix Matière'
+            ])
             ->add('imgMat', FileType::class, [
                 'label' =>false,
                 'multiple' => false,

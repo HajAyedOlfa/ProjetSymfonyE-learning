@@ -16,7 +16,6 @@ class CoursType extends AbstractType
     {
         $builder
             ->add('nomCours')
-            ->add('prixCours')
             ->add('imgCours', FileType::class, [
                 'label' =>false,
                 'multiple' => false,

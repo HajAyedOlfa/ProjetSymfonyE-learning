@@ -3,7 +3,6 @@
 {% block body %}
 
 
-
     <div id="left-sidebar" class="sidebar">
         <div class="sidebar-scroll">
             <div class="user-account">
@@ -56,34 +55,15 @@
 
                                 </ul>
                             </li>
-                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Participants</span>
-                                </a>
-                                <ul>
-                                    <li><a href="doctors-all.html">Tous les Participants </a></li>
-                                    <li><a href="doctor-profile.html">Participants Profile</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{ path('participant') }}" ><i class="icon-user-follow"></i><span>Participants</span></a>
 
-                            <li><a href="javascript:void(0);" class="has-arrow"><i
+
+
+
+                            <li><a href="{{ path('admin') }}" ><i
                                             class="icon-user"></i><span> Admins </span> </a>
-                                <ul>
-                                    <li><a href="patients-all.html"> Tous les Admins </a></li>
-                                    <li><a href="patient-add.html"> Ajouter Admins </a></li>
-                                    <li><a href="patient-profile.html">Admin Profile</a></li>
 
-                                </ul>
                             </li>
-                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Payments</span>
-                                </a>
-                                <ul>
-                                    <li><a href="payments.html">Payments</a></li>
-                                    <li><a href="payments-add.html">Add Payment</a></li>
-                                    <li><a href="payments-invoice.html">Invoice</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="app-appointment.html"><i class="icon-calendar"></i>Emplois</a></li>
-
 
                         </ul>
                     </nav>

@@ -23,10 +23,7 @@ class Cours
      */
     private $nomCours;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $prixCours;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -52,18 +49,6 @@ class Cours
     public function setNomCours(string $nomCours): self
     {
         $this->nomCours = $nomCours;
-
-        return $this;
-    }
-
-    public function getPrixCours(): ?int
-    {
-        return $this->prixCours;
-    }
-
-    public function setPrixCours(int $prixCours): self
-    {
-        $this->prixCours = $prixCours;
 
         return $this;
     }

@@ -6,6 +6,7 @@ use App\Entity\Participant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use http\Client\Curl\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
@@ -72,4 +73,5 @@ class ParticipantRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }
