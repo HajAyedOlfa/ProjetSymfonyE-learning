@@ -22,18 +22,18 @@ class Matiere
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomMat;
+    public $nomMat;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $prixMat;
+    public $prixMat;
 
     /**
      * @ORM\Column(type="string", length=255)
      * cascade={"persist"}
      */
-    private $imgMat;
+    public $imgMat;
 
     /**
      * @ORM\OneToMany(targetEntity=Cours::class, mappedBy="matiere")
