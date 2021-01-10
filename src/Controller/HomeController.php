@@ -15,22 +15,24 @@ class HomeController extends AbstractController
      */
     public function index(MatiereRepository $matiereRepository)
     {
-        //$reponse = new JsonResponse();
-        //$datas=$matiereRepository->findAll();
-//
-        //foreach ($datas as $data => $id){
-        //    $reponse->setData("json_encode($id->nomMat, $id->prixMat, $id->imgMat");
-        //    //$reponse->setData("json_encode($id->prixMat");
-        //    //$reponse->setData("json_encode($id->imgMat");
-//
-        //}
-        //return $this->redirect('http://localhost:4200/', [
-        //    'matieres' => $reponse
-        //]);
+            dd('bnjour');
 
-        return $this->render('home.html.twig',[
-            'matieres' => $matiereRepository->findAll(),
-        ]);
+    }
+    /**
+     * @Route("/json", name="jsonRes")
+     */
+    public function res(MatiereRepository $matiereRepository)
+    {
+        $Matiers=$matiereRepository->findAll();
+         $data=[];
+         foreach ($Matiers as $matier) {
+             $data[] = [
+                 'nomMatiere' => $matier->getNomMat(),
+                 'prix' => $matier->getPrixMat(),
+                 'image' => $matier->getImgMat(),
+             ];
+         }
+        return new JsonResponse($data, 200, array('Access-Control-Allow-Origin'=> '*'));
     }
 
 }
