@@ -15,13 +15,16 @@ class HomeController extends AbstractController
      */
     public function index(MatiereRepository $matiereRepository)
     {
-            dd('bnjour');
+        return $this->render('home.html.twig', [
+            'controller_name' => 'HomeController',
+            'matieres' => $matiereRepository->findAll(),
 
+        ]);
     }
-    /**
+    /* /**
      * @Route("/json", name="jsonRes")
      */
-    public function res(MatiereRepository $matiereRepository)
+   /* public function res(MatiereRepository $matiereRepository)
     {
         $Matiers=$matiereRepository->findAll();
          $data=[];
@@ -33,6 +36,6 @@ class HomeController extends AbstractController
              ];
          }
         return new JsonResponse($data, 200, array('Access-Control-Allow-Origin'=> '*'));
-    }
+    }*/
 
 }

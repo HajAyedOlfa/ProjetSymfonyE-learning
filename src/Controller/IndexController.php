@@ -116,7 +116,9 @@ class IndexController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             //recuperation de l'image a supprimer du dossier uploads
+
             $image = $matiere->getImgMat();
+
             //unlink($this->getParameter('image_directory')."/".$image);
 
             $entityManager->remove($matiere);
